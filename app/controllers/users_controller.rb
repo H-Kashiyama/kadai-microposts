@@ -26,6 +26,13 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  #お気に入り投稿一覧取得
+  def likes
+    @user = User.find(params[:id])
+    @favoritings = @user.favoritings.page(params[:page])
+    counts(@user)
+  end
 
   def followings
     @user = User.find(params[:id])
