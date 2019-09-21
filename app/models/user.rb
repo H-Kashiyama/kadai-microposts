@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favoritings, through: :favorites, source: :micropost
   
+  
   #お気に入り追加
   def like(micropost)
     favorites.find_or_create_by(micropost_id: micropost.id)
